@@ -12,8 +12,7 @@ export const JQModal = ({ opened, onClose }: ModalProps) => {
     <Modal title="JSON Query" size="lg" opened={opened} onClose={onClose} centered>
       <Stack>
         <Text fz="sm">
-          jq is a lightweight and flexible command-line JSON processor. JSON Crack uses simplified
-          version of jq, not all features are supported.
+          jq 是一个轻量级且灵活的命令行 JSON 处理器。 JSON Crack使用简化版本的jq，并非支持所有功能。
           <br />
           <Anchor
             fz="sm"
@@ -21,17 +20,18 @@ export const JQModal = ({ opened, onClose }: ModalProps) => {
             href="https://jqlang.github.io/jq/manual/"
             rel="noopener noreferrer"
           >
-            Read documentation. <VscLinkExternal />
+            阅读文档。
+            <VscLinkExternal />
           </Anchor>
         </Text>
         <TextInput
           leftSection="jq"
-          placeholder="Enter jq query"
+          placeholder="输入 jq query"
           value={query}
           onChange={e => setQuery(e.currentTarget.value)}
         />
         <Group justify="right">
-          <Button onClick={() => updateJson(query, onClose)}>Display on Graph</Button>
+          <Button onClick={() => updateJson(query, onClose)}>显示在图表上</Button>
         </Group>
       </Stack>
     </Modal>

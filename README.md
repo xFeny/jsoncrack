@@ -1,134 +1,109 @@
-<!-- PROJECT LOGO -->
-<p align="center">
-  <a href="https://github.com/AykutSarac/jsoncrack.com">
-   <img src="./public/assets/logo.svg" height="50" alt="Logo">
-  </a>
+forked from [AykutSarac/jsoncrack.com](https://github.com/AykutSarac/jsoncrack.com)
 
-  <h1 align="center">JSON Crack</h1>
+修改可见内容为中文，修改默认页即为JSON Crack Editor，删除需要升级才能使用的操作
 
-  <p align="center">
-    The open-source JSON Editor.
-    <br />
-    <a href="https://jsoncrack.com"><strong>Learn more »</strong></a>
-    <br />
-    <br />
-    <a href="https://todiagram.com">ToDiagram</a>
-    ·
-    <a href="https://discord.gg/yVyTtCRueq">Discord</a>
-    ·
-    <a href="https://jsoncrack.com">Website</a>
-    ·
-    <a href="https://github.com/AykutSarac/jsoncrack.com/issues">Issues</a>
-    ·
-    <a href="https://marketplace.visualstudio.com/items?itemName=AykutSarac.jsoncrack-vscode">VS Code</a>
-  </p>
-</p>
 
-<!-- ABOUT THE PROJECT -->
-
-## About the Project
-
-<img width="100%" alt="booking-screen" src="./public/assets/editor.webp">
-
-## Visualize JSON into interactive graphs
-
-JSON Crack is a tool for visualizing JSON data in a structured, interactive graphs, making it easier to explore, format, and validate JSON. It offers features like converting JSON to other formats (CSV, YAML), generating JSON Schema, executing queries, and exporting visualizations as images. Designed for both readability and usability.
-
-* **Visualizer**: Instantly convert JSON, YAML, CSV, XML, and TOML into interactive graphs or trees in dark or light mode.
-* **Convert**: Seamlessly transform data formats, like JSON to CSV or XML to JSON, for easy sharing.
-* **Format & Validate**: Beautify and validate JSON, YAML, and CSV for clear and accurate data.
-* **Code Generation**: Generate TypeScript interfaces, Golang structs, and JSON Schema.
-* **JSON Schema**: Create JSON Schema, mock data, and validate various data formats.
-* **Advanced Tools**: Decode JWT, randomize data, and run jq or JSON path queries.
-* **Export Image**: Download your visualization as PNG, JPEG, or SVG.
-* **Privacy**: All data processing is local; nothing is stored on our servers.
-
-## Recognition
-
-<a href="https://news.ycombinator.com/item?id=32626873">
-  <img
-    style="width: 250px; height: 54px;" width="250" height="54"
-    alt="Featured on Hacker News"
-    src="https://hackernews-badge.vercel.app/api?id=32626873"
-  />
-</a>
-
-<a href="https://producthunt.com/posts/JSON-Crack?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-jsoncrack" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=332281&theme=light" alt="JSON Crack | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" /></a>
-
-### Built With
-
-- [Next.js](https://nextjs.org/?ref=jsoncrack.com)
-- [React.js](https://reactjs.org/?ref=jsoncrack.com)
-- [Reaflow](https://reaflow.dev/?ref=jsoncrack.com)
-- [Monaco Editor](https://github.com/suren-atoyan/monaco-react)
-
-## Stay Up-to-Date
-
-JSON Crack officially launched as v1.0 on the 17th of February 2022 and we've come a long way so far. Watch **releases** of this repository to be notified of future updates:
-
-<a href="https://github.com/AykutSarac/jsoncrack.com"><img src="https://img.shields.io/github/stars/AykutSarac/jsoncrack.com" alt="Star at GitHub" /></a>
 
 <!-- GETTING STARTED -->
 
-## Getting Started
+## 开始
 
-To get a local copy up and running, please follow these simple steps.
+### 前提
 
-### Prerequisites
-
-Here is what you need to be able to run JSON Crack.
+以下是运行 JSON Crack 所需的环境。
 
 - Node.js (Version: >=18.x)
-- Pnpm _(recommended)_
+- Pnpm _(推荐)_
 
 
-## Development
+## 开发
 
-### Setup
+### 步骤
 
-1. Clone the repo into a public GitHub repository (or fork https://github.com/AykutSarac/jsoncrack.com/fork). If you plan to distribute the code, read the [`LICENSE`](/LICENSE) for additional details.
+1. 克隆项目(或 fork https://github.com/AykutSarac/jsoncrack.com/fork).
 
    ```sh
    git clone https://github.com/AykutSarac/jsoncrack.com.git
    ```
 
-2. Go to the project folder
+2. 转到项目文件夹
 
    ```sh
    cd jsoncrack.com
    ```
 
-3. Install packages with yarn
+3. 安装软件包
 
    ```sh
    pnpm install
    ```
 
-4. Run the project
+4. 运行项目
 
    ```sh
    pnpm dev
-
+   
    # Running on http://localhost:3000/
    ```
 
-### Docker
+### Docker 部署
 
-🐳 A [`Dockerfile`](Dockerfile) is provided in the root of the repository.
-If you want to run JSON Crack locally:
+在项目根目录有一个🐳 [`Dockerfile`](Dockerfile) 。
+如果您想在本地运行 JSON Crack:
 
 ```console
-# Build a Docker image with:
-docker compose build
+# 创建 Docker 镜像:
+docker build -t jsoncrack .
 
-# Run locally with `docker-compose`
-docker compose up
+# 本地运行 `docker run`
+docker run -p 8888:8080 jsoncrack
 
-# Go to http://localhost:8888
+# 本地运行 `docker-compose`
+docker-compose up -d
+
+# 打开 http://localhost:8888
 ```
 
-<!-- LICENSE -->
+#### Vercel 部署
 
-## License
+打开[vercel.com](https://vercel.com/)网站
 
-See [`LICENSE`](/LICENSE) for more information.
+<img src="http://oss.feny.ink/blogs/images/202410111629956.png" alt="image-20241011162914830" style="zoom:50%;" /> 
+
+点击右上角的`Lon In`进行登录
+
+<img src="http://oss.feny.ink/blogs/images/202410111631986.png" alt="image-20241011163118943" style="zoom:50%;" /> 
+
+使用GitHub进行登录
+
+#### 关联 github 仓库
+
+点击 Add new 按钮，选择 Project 新建一个项目
+
+<img src="http://oss.feny.ink/blogs/images/202410111633738.png" alt="image-20241011163348687" style="zoom:50%;" /> 
+
+选择 github 中需要部署的仓库，点击 Import
+
+<img src="http://oss.feny.ink/blogs/images/202410111634347.png" alt="image-20241011163454280" style="zoom:50%;" /> 
+
+点击 Deploy，等待build完成
+
+<img src="http://oss.feny.ink/blogs/images/202410111636734.png" alt="image-20241011163639665" style="zoom:50%;" /> 
+
+在个人主页可以看到
+
+<img src="http://oss.feny.ink/blogs/images/202410111638141.png" alt="image-20241011163803097" style="zoom:50%;" /> 
+
+点击进去看详情
+
+<img src="http://oss.feny.ink/blogs/images/202410111639656.png" alt="image-20241011163951578" style="zoom:50%;" /> 
+
+## 问题
+
+国内访问Vercel自带的`.vercel.app`地址会打不开，要翻墙才能访问
+
+### 解决办法
+
+如果有域名在`Setting`中设置为自己的域名即可解决访问问题
+
+<img src="http://oss.feny.ink/blogs/images/202410111644436.png" alt="image-20241011164452334" style="zoom:50%;" /> 

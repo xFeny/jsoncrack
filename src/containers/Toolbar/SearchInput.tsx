@@ -15,7 +15,7 @@ export const SearchInput = () => {
       w={180}
       value={searchValue}
       onChange={e => setValue(e.currentTarget.value)}
-      placeholder="Search Node"
+      placeholder="搜索节点"
       autoComplete="off"
       autoCorrect="off"
       onKeyDown={getHotkeyHandler([["Enter", skip]])}

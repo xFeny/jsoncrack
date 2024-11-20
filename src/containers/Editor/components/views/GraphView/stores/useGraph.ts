@@ -46,6 +46,7 @@ interface GraphActions {
   setViewPort: (ref: ViewPort) => void;
   setSelectedNode: (nodeData: NodeData) => void;
   focusFirstNode: () => void;
+  focusSecondNode: () => void;
   expandNodes: (nodeId: string) => void;
   expandGraph: () => void;
   collapseNodes: (nodeId: string) => void;
@@ -59,6 +60,22 @@ interface GraphActions {
   centerView: () => void;
   clearGraph: () => void;
   setZoomFactor: (zoomFactor: number) => void;
+}
+
+function parseTransform(transform) {
+  const matrixRegex = /matrix\(([^)]+)\)/;
+  const match = transform.match(matrixRegex);
+  if (match) {
+    const values = match[1].split(",");
+    return {
+      translateX: parseInt(values[4]),
+      translateY: parseInt(values[5]),
+      scaleX: parseInt(values[0]),
+      scaleY: parseInt(values[3]),
+      rotate: Math.atan2(values[1], values[0]) * (180 / Math.PI),
+    };
+  }
+  return { translateX: 0, translateY: 0, scaleX: 1, scaleY: 1, rotate: 0 };
 }
 
 const useGraph = create<Graph & GraphActions>((set, get) => ({
@@ -190,6 +207,40 @@ const useGraph = create<Graph & GraphActions>((set, get) => ({
     get().viewPort?.camera?.centerFitElementIntoView(rootNode as HTMLElement, {
       elementExtraMarginForZoom: 100,
     });
+  },
+  /**
+   * 定位到与根节点水平齐平的第二个节点
+   */
+  focusSecondNode: () => {
+    const rootNode = document.querySelector("g[id*='node-1']") as HTMLElement;
+    const styles = window.getComputedStyle(rootNode);
+    // 第一个节点的水平区间
+    const transform = styles?.getPropertyValue("transform");
+    const { translateY: minTranslateY } = parseTransform(transform);
+    const nodeHeight = parseFloat(rootNode.querySelector("rect")?.getAttribute("height") ?? "0");
+    const maxTranslateY = minTranslateY + nodeHeight;
+
+    // 获取和第一个节点在同一水平区间的节点
+    const cen: Element[] = [];
+    const allNodes = document.querySelectorAll("path[class*='_path_v5z62_8']");
+    allNodes.forEach(node => {
+      const d = node.getAttribute("d");
+      const translateY = parseInt(d?.substring(d.lastIndexOf(",") + 1) ?? "0");
+      if (translateY > minTranslateY && translateY < maxTranslateY) {
+        cen.push(node);
+      }
+    });
+
+    //console.log(cen);
+    if (cen.length >= 2) {
+      get().viewPort?.camera?.centerFitElementIntoView(cen[1] as HTMLElement, {
+        elementExtraMarginForZoom: 100,
+      });
+      get().setZoomFactor(70 / 100);
+      return;
+    }
+
+    get().centerView();
   },
   setZoomFactor: zoomFactor => {
     const viewPort = get().viewPort;

@@ -14,7 +14,9 @@ loader.config({
 const editorOptions: EditorProps["options"] = {
   formatOnPaste: true,
   formatOnType: true,
-  minimap: { enabled: false },
+  minimap: {
+    enabled: false,
+  },
   scrollBeyondLastLine: false,
 };
 

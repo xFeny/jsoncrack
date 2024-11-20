@@ -8,19 +8,17 @@ import Layout from "src/layout/Layout";
 const NotFound = () => {
   return (
     <Layout>
-      <NextSeo {...SEO} title="404 | JSON Crack" noindex />
+      <NextSeo {...SEO} title="404 | ToDiagram" noindex nofollow />
       <Stack mt={100} justify="center" align="center">
         <Title fz={150} style={{ fontFamily: "monospace" }}>
           404
         </Title>
-        <Title order={2}>Nothing to see here</Title>
         <Text c="dimmed" maw={800} style={{ textAlign: "center" }}>
-          Page you are trying to open does not exist. You may have mistyped the address, or the page
-          has been moved to another URL. If you think this is an error contact support.
+          您要打开的页面不存在。您可能输入了错误的地址，或者该页面已移动到另一个 URL。
         </Text>
         <Link href="/">
           <Button size="lg" color="gray" type="button">
-            Go Home
+            返回首页
           </Button>
         </Link>
       </Stack>

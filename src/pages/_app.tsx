@@ -4,7 +4,7 @@ import { createTheme, MantineProvider } from "@mantine/core";
 import "@mantine/core/styles.css";
 import "@mantine/code-highlight/styles.css";
 import { ThemeProvider } from "styled-components";
-import { NextSeo, SoftwareAppJsonLd } from "next-seo";
+import { NextSeo } from "next-seo";
 import { GoogleAnalytics } from "nextjs-google-analytics";
 import { Toaster } from "react-hot-toast";
 import GlobalStyle from "src/constants/globalStyle";
@@ -56,16 +56,6 @@ function JsonCrack({ Component, pageProps }: AppProps) {
   return (
     <>
       <NextSeo {...SEO} />
-      <SoftwareAppJsonLd
-        name="JSON Crack"
-        price="0"
-        priceCurrency="USD"
-        type="SoftwareApplication"
-        operatingSystem="Browser"
-        keywords="json, json viewer, json visualizer, json formatter, json editor, json parser, json to tree view, json to diagram, json graph, json beautifier, json validator, json to csv, json to yaml, json minifier, json schema, json data transformer, json api, online json viewer, online json formatter, online json editor, json tool"
-        applicationCategory="DeveloperApplication"
-        aggregateRating={{ ratingValue: "4.9", ratingCount: "19" }}
-      />
       <MantineProvider defaultColorScheme="light" theme={theme}>
         <ThemeProvider theme={lightTheme}>
           <Toaster

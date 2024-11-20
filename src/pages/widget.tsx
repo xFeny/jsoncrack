@@ -7,7 +7,10 @@ import { NextSeo } from "next-seo";
 import toast from "react-hot-toast";
 import { darkTheme, lightTheme } from "src/constants/theme";
 import useGraph from "src/containers/Editor/components/views/GraphView/stores/useGraph";
+import { TreeView } from "src/containers/Editor/components/views/TreeView";
 import { Toolbar } from "src/containers/Toolbar";
+import { ViewMode } from "src/enums/viewMode.enum";
+import useConfig from "src/store/useConfig";
 import useFile from "src/store/useFile";
 import type { LayoutDirection } from "src/types/graph";
 
@@ -31,7 +34,7 @@ const GraphView = dynamic(
 const WidgetPage = () => {
   const { query, push, isReady } = useRouter();
   const { setColorScheme } = useMantineColorScheme();
-  const [theme, setTheme] = React.useState<"dark" | "light">("dark");
+  const [theme, setTheme] = React.useState<"dark" | "light">("light");
   const checkEditorSession = useFile(state => state.checkEditorSession);
   const setContents = useFile(state => state.setContents);
   const setDirection = useGraph(state => state.setDirection);
@@ -58,7 +61,7 @@ const WidgetPage = () => {
         setDirection(event.data.options?.direction || "RIGHT");
       } catch (error) {
         console.error(error);
-        toast.error("Invalid JSON!");
+        toast.error("无效的 JSON!");
       }
     };
 
@@ -70,12 +73,22 @@ const WidgetPage = () => {
     setColorScheme(theme);
   }, [setColorScheme, theme]);
 
+  const ModalController = dynamic(() => import("src/layout/ModalController"));
+  const View = () => {
+    const viewMode = useConfig(state => state.viewMode);
+
+    if (viewMode === ViewMode.Graph) return <GraphView isWidget />;
+    if (viewMode === ViewMode.Tree) return <TreeView />;
+    return null;
+  };
+
   return (
     <>
-      <NextSeo noindex />
+      <NextSeo noindex nofollow />
       <ThemeProvider theme={theme === "dark" ? darkTheme : lightTheme}>
-        <Toolbar isWidget />
-        <GraphView isWidget />
+        <ModalController />
+        <Toolbar />
+        <View />
       </ThemeProvider>
     </>
   );

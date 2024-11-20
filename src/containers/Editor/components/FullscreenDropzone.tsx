@@ -39,19 +39,19 @@ export const FullscreenDropzone = () => {
         <Dropzone.Accept>
           <VscFiles size={100} />
           <Text fz="h1" fw={500} mt="lg">
-            Upload to JSON Crack
+            上传到 JSON Crack
           </Text>
           <Text fz="lg" c="dimmed" mt="sm">
-            (Max file size: 4 MB)
+            (最大文件大小: 4 MB)
           </Text>
         </Dropzone.Accept>
         <Dropzone.Reject>
           <VscCircleSlash size={100} />
           <Text fz="h1" fw={500} mt="lg">
-            Invalid file
+            无效的文件
           </Text>
           <Text fz="lg" c="dimmed" mt="sm">
-            Allowed formats are JSON, YAML, CSV, XML, TOML
+            允许的格式有 JSON、YAML、CSV、XML、TOML
           </Text>
         </Dropzone.Reject>
       </Group>

@@ -5,11 +5,9 @@ import { event as gaEvent } from "nextjs-google-analytics";
 import toast from "react-hot-toast";
 import { CgChevronDown } from "react-icons/cg";
 import { FaRandom } from "react-icons/fa";
-import { FaWandMagicSparkles } from "react-icons/fa6";
-import { LuGlobe } from "react-icons/lu";
-import { MdCompare, MdFilterListAlt } from "react-icons/md";
+import { MdFilterListAlt } from "react-icons/md";
 import { SiJsonwebtokens } from "react-icons/si";
-import { VscSearchFuzzy, VscJson, VscGroupByRefType, VscLock } from "react-icons/vsc";
+import { VscSearchFuzzy, VscGroupByRefType } from "react-icons/vsc";
 import { jsonToContent } from "src/lib/utils/jsonAdapter";
 import useFile from "src/store/useFile";
 import useJson from "src/store/useJson";
@@ -51,7 +49,7 @@ export const ToolsMenu = () => {
       <Menu.Target>
         <StyledToolElement onClick={() => gaEvent("show_tools_menu")}>
           <Flex align="center" gap={3}>
-            Tools <CgChevronDown />
+            工具 <CgChevronDown />
           </Flex>
         </StyledToolElement>
       </Menu.Target>
@@ -65,16 +63,6 @@ export const ToolsMenu = () => {
           }}
         >
           JSON Query (jq)
-        </Menu.Item>
-        <Menu.Item
-          fz={12}
-          leftSection={<VscJson />}
-          onClick={() => {
-            setVisible("schema")(true);
-            gaEvent("open_schema_modal");
-          }}
-        >
-          JSON Schema
         </Menu.Item>
         <Menu.Item
           fz={12}
@@ -95,7 +83,7 @@ export const ToolsMenu = () => {
             gaEvent("open_jwt_modal");
           }}
         >
-          Decode JWT
+          解码 JWT
         </Menu.Item>
         <Menu.Item
           fz={12}
@@ -105,43 +93,10 @@ export const ToolsMenu = () => {
             gaEvent("open_type_modal");
           }}
         >
-          Generate Type
+          生成类型
         </Menu.Item>
         <Menu.Item fz={12} leftSection={<FaRandom />} onClick={randomizeData}>
-          Randomize Data
-        </Menu.Item>
-        <Menu.Item
-          fz={12}
-          leftSection={<LuGlobe />}
-          rightSection={<VscLock />}
-          onClick={() => {
-            setVisible("upgrade")(true);
-            gaEvent("rest_client_modal");
-          }}
-        >
-          REST Client
-        </Menu.Item>
-        <Menu.Item
-          fz={12}
-          leftSection={<FaWandMagicSparkles />}
-          rightSection={<VscLock />}
-          onClick={() => {
-            setVisible("upgrade")(true);
-            gaEvent("open_ai_filter_modal");
-          }}
-        >
-          AI-Powered Filter
-        </Menu.Item>
-        <Menu.Item
-          fz={12}
-          leftSection={<MdCompare />}
-          rightSection={<VscLock />}
-          onClick={() => {
-            setVisible("upgrade")(true);
-            gaEvent("open_compare_data_modal");
-          }}
-        >
-          Compare Data
+          随机数据
         </Menu.Item>
       </Menu.Dropdown>
     </Menu>

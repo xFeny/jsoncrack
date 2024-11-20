@@ -65,7 +65,7 @@ function downloadURI(uri: string, name: string) {
 export const DownloadModal = ({ opened, onClose }: ModalProps) => {
   const [extension, setExtension] = React.useState(Extensions.PNG);
   const [fileDetails, setFileDetails] = React.useState({
-    filename: "jsoncrack.com",
+    filename: "jsoncrack.feny.ink",
     backgroundColor: "#FFFFFF",
     quality: 1,
   });
@@ -113,7 +113,7 @@ export const DownloadModal = ({ opened, onClose }: ModalProps) => {
       downloadURI(dataURI, `${fileDetails.filename}.${extension}`);
       gaEvent("download_img", { label: extension });
     } catch (error) {
-      toast.error("Failed to download image!");
+      toast.error("下载图片失败!");
     } finally {
       toast.dismiss("toastDownload");
       onClose();
@@ -124,9 +124,9 @@ export const DownloadModal = ({ opened, onClose }: ModalProps) => {
     setFileDetails({ ...fileDetails, [key]: value });
 
   return (
-    <Modal opened={opened} onClose={onClose} title="Download Image" centered>
+    <Modal opened={opened} onClose={onClose} title="下载图片" centered>
       <TextInput
-        label="File Name"
+        label="文件名"
         value={fileDetails.filename}
         onChange={e => updateDetails("filename", e.target.value)}
         mb="lg"
@@ -143,7 +143,7 @@ export const DownloadModal = ({ opened, onClose }: ModalProps) => {
         mb="lg"
       />
       <ColorInput
-        label="Background Color"
+        label="背景颜色"
         value={fileDetails.backgroundColor}
         onChange={color => updateDetails("backgroundColor", color)}
         withEyeDropper={false}
@@ -160,10 +160,10 @@ export const DownloadModal = ({ opened, onClose }: ModalProps) => {
       <Divider my="xs" />
       <Group justify="right">
         <Button leftSection={<FiCopy />} onClick={clipboardImage}>
-          Clipboard
+          复制
         </Button>
         <Button color="green" leftSection={<FiDownload />} onClick={exportAsImage}>
-          Download
+          下载
         </Button>
       </Group>
     </Modal>

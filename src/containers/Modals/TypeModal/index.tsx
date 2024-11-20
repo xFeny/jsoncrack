@@ -11,6 +11,8 @@ enum Language {
   Go = "go",
   JSON_SCHEMA = "json_schema",
   Kotlin = "kotlin",
+  Java = "java",
+  Python = "python",
   Rust = "rust",
 }
 
@@ -39,6 +41,16 @@ const typeOptions = [
     label: "Kotlin",
     value: Language.Kotlin,
     lang: "kotlin",
+  },
+  {
+    label: "Java",
+    value: Language.Java,
+    lang: "java",
+  },
+  {
+    label: "Python",
+    value: Language.Python,
+    lang: "python",
   },
   {
     label: "Rust",
@@ -80,6 +92,17 @@ export const TypeModal = ({ opened, onClose }: ModalProps) => {
               setType(gofmt.default(types.go));
             });
           });
+        } else if (selectedType === Language.Java) {
+          import("src/lib/utils/jsonToJavaBean").then(jtg => {
+            const javaBean = jtg.default(getJson());
+            setType(javaBean);
+          });
+        } else if (selectedType === Language.Python) {
+          import("src/lib/utils/jsonToPython").then(jtg => {
+            const json = JSON.parse(getJson());
+            const python = jtg.default(json);
+            setType(python);
+          });
         } else {
           transformer({ value: getJson() }).then(setType);
         }
@@ -90,7 +113,7 @@ export const TypeModal = ({ opened, onClose }: ModalProps) => {
   }, [getJson, opened, selectedType, transformer]);
 
   return (
-    <Modal title="Generate Types" size="lg" opened={opened} onClose={onClose} centered>
+    <Modal title="生成类型" size="lg" opened={opened} onClose={onClose} centered>
       <Stack pos="relative">
         <Select
           value={selectedType}
@@ -104,8 +127,8 @@ export const TypeModal = ({ opened, onClose }: ModalProps) => {
         <ScrollArea.Autosize mah={400} maw={700}>
           <CodeHighlight
             language={editorLanguage}
-            copyLabel="Copy to clipboard"
-            copiedLabel="Copied to clipboard"
+            copyLabel="复制"
+            copiedLabel="复制成功"
             code={type}
             styles={{ root: { borderRadius: 6 } }}
           />

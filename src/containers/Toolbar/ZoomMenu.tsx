@@ -52,7 +52,7 @@ export const ZoomMenu = () => {
             gaEvent("zoom_in");
           }}
         >
-          <Text size="xs">Zoom in</Text>
+          <Text size="xs">放大</Text>
         </Menu.Item>
         <Menu.Item
           rightSection="-"
@@ -61,7 +61,7 @@ export const ZoomMenu = () => {
             gaEvent("zoom_out");
           }}
         >
-          <Text size="xs">Zoom out</Text>
+          <Text size="xs">缩小</Text>
         </Menu.Item>
         <Menu.Item
           rightSection="⇧ 1"
@@ -70,7 +70,7 @@ export const ZoomMenu = () => {
             gaEvent("center_view");
           }}
         >
-          <Text size="xs">Zoom to fit</Text>
+          <Text size="xs">缩放以适合屏幕</Text>
         </Menu.Item>
         <Menu.Item
           onClick={() => {
@@ -78,7 +78,7 @@ export const ZoomMenu = () => {
             gaEvent("zoom_50%");
           }}
         >
-          <Text size="xs">Zoom to %50</Text>
+          <Text size="xs">缩放到50%</Text>
         </Menu.Item>
         <Menu.Item
           rightSection="⇧ 0"
@@ -87,7 +87,7 @@ export const ZoomMenu = () => {
             gaEvent("zoom_100%");
           }}
         >
-          <Text size="xs">Zoom to %100</Text>
+          <Text size="xs">缩放到100%</Text>
         </Menu.Item>
         <Menu.Item
           onClick={() => {
@@ -95,7 +95,7 @@ export const ZoomMenu = () => {
             gaEvent("zoom_200%");
           }}
         >
-          <Text size="xs">Zoom to %200</Text>
+          <Text size="xs">缩放到200%</Text>
         </Menu.Item>
       </Menu.Dropdown>
     </Menu>

@@ -80,7 +80,7 @@ export const ViewMenu = () => {
       <Menu.Target>
         <StyledToolElement onClick={() => gaEvent("show_view_menu")}>
           <Flex align="center" gap={3}>
-            View <CgChevronDown />
+            视图 <CgChevronDown />
           </Flex>
         </StyledToolElement>
       </Menu.Target>
@@ -94,8 +94,8 @@ export const ViewMenu = () => {
             gaEvent("change_view_mode", { label: e });
           }}
           data={[
-            { value: ViewMode.Graph, label: "Graph" },
-            { value: ViewMode.Tree, label: "Tree" },
+            { value: ViewMode.Graph, label: "图形" },
+            { value: ViewMode.Tree, label: "树形" },
           ]}
           fullWidth
         />
@@ -115,13 +115,13 @@ export const ViewMenu = () => {
                 </Text>
               }
             >
-              Rotate Layout
+              旋转布局
             </Menu.Item>
             <Menu.Item
               fz={12}
               onClick={() => {
                 toggleExpandCollapseGraph();
-                gaEvent("expand_collapse_graph", { label: graphCollapsed ? "expand" : "collapse" });
+                gaEvent("expand_collapse_graph", { label: graphCollapsed ? "展开" : "折叠" });
               }}
               leftSection={graphCollapsed ? <VscExpandAll /> : <VscCollapseAll />}
               rightSection={
@@ -130,10 +130,10 @@ export const ViewMenu = () => {
                 </Text>
               }
             >
-              {graphCollapsed ? "Expand" : "Collapse"} Graph
+              {graphCollapsed ? "展开" : "折叠"} 节点
             </Menu.Item>
             <Menu.Item fz={12} onClick={focusFirstNode} leftSection={<VscTarget />}>
-              Focus to First Node
+              聚焦到第一个节点
             </Menu.Item>
           </>
         )}

@@ -10,18 +10,17 @@ const Custom500 = () => {
 
   return (
     <Layout>
-      <NextSeo {...SEO} title="Unexpected Error Occurred | JSON Crack" />
+      <NextSeo {...SEO} title="Unexpected Error Occured | ToDiagram" />
       <Stack mt={100} justify="center" align="center">
         <Title fz={150} style={{ fontFamily: "monospace" }}>
           500
         </Title>
-        <Title order={2}>Something bad just happened...</Title>
+        <Title order={2}>发生了一些糟糕的事情...</Title>
         <Text c="dimmed" maw={800} style={{ textAlign: "center" }}>
-          Our servers could not handle your request. Don&apos;t worry, our development team was
-          already notified. Try refreshing the page.
+          我们的服务器无法处理您的请求。请尝试刷新页面。
         </Text>
         <Button size="lg" color="gray" type="button" onClick={() => router.reload()}>
-          Refresh the page
+          刷新页面
         </Button>
       </Stack>
     </Layout>

@@ -1,17 +1,9 @@
 import React from "react";
-import Link from "next/link";
 import { Flex, Popover, Text } from "@mantine/core";
 import styled from "styled-components";
 import { event as gaEvent } from "nextjs-google-analytics";
 import { BiSolidDockLeft } from "react-icons/bi";
-import {
-  VscCheck,
-  VscError,
-  VscFeedback,
-  VscRunAll,
-  VscSync,
-  VscSyncIgnored,
-} from "react-icons/vsc";
+import { VscPass, VscError, VscRunAll, VscSync, VscSyncIgnored } from "react-icons/vsc";
 import useGraph from "src/containers/Editor/components/views/GraphView/stores/useGraph";
 import useConfig from "src/store/useConfig";
 import useFile from "src/store/useFile";
@@ -111,7 +103,7 @@ export const BottomBar = () => {
                 <Flex align="center" gap={2}>
                   <VscError color="red" />
                   <Text c="red" fw={500} fz="xs">
-                    Invalid
+                    验证未通过
                   </Text>
                 </Flex>
               </Popover.Target>
@@ -121,8 +113,10 @@ export const BottomBar = () => {
             </Popover>
           ) : (
             <Flex align="center" gap={2}>
-              <VscCheck />
-              <Text size="xs">Valid</Text>
+              <VscPass color="green" />
+              <Text c="green" size="xs">
+                已验证
+              </Text>
             </Flex>
           )}
         </StyledBottomBarItem>
@@ -133,28 +127,18 @@ export const BottomBar = () => {
           }}
         >
           {liveTransformEnabled ? <VscSync /> : <VscSyncIgnored />}
-          <Text fz="xs">Live Transform</Text>
+          <Text fz="xs">自动转换</Text>
         </StyledBottomBarItem>
         {!liveTransformEnabled && (
           <StyledBottomBarItem onClick={() => setContents({})} disabled={!!error}>
             <VscRunAll />
-            Click to Transform
+            点击转换
           </StyledBottomBarItem>
         )}
       </StyledLeft>
 
       <StyledRight>
         <StyledBottomBarItem>Nodes: {nodeCount}</StyledBottomBarItem>
-        <Link
-          href="https://github.com/AykutSarac/jsoncrack.com/discussions"
-          target="_blank"
-          rel="noopener"
-        >
-          <StyledBottomBarItem>
-            <VscFeedback />
-            Feedback
-          </StyledBottomBarItem>
-        </Link>
       </StyledRight>
     </StyledBottomBar>
   );
