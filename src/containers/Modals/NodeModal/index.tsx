@@ -3,7 +3,6 @@ import type { ModalProps } from "@mantine/core";
 import { Modal, Stack, Text, ScrollArea } from "@mantine/core";
 import { CodeHighlight } from "@mantine/code-highlight";
 import useGraph from "src/containers/Editor/components/views/GraphView/stores/useGraph";
-import useModal from "src/store/useModal";
 
 const dataToString = (data: any) => {
   const text = Array.isArray(data) ? Object.fromEntries(data) : data;

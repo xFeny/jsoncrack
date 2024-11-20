@@ -4,7 +4,6 @@ import { event as gaEvent } from "nextjs-google-analytics";
 import { BsCheck2 } from "react-icons/bs";
 import { MdSettings } from "react-icons/md";
 import useConfig from "src/store/useConfig";
-import useModal from "src/store/useModal";
 import { StyledToolElement } from "./styles";
 
 export const OptionsMenu = () => {
