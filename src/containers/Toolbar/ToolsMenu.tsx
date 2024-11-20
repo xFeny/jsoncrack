@@ -7,6 +7,7 @@ import { CgChevronDown } from "react-icons/cg";
 import { FaRandom } from "react-icons/fa";
 import { MdFilterListAlt } from "react-icons/md";
 import { SiJsonwebtokens } from "react-icons/si";
+import { VscSync, VscJson } from "react-icons/vsc";
 import { VscSearchFuzzy, VscGroupByRefType } from "react-icons/vsc";
 import { jsonToContent } from "src/lib/utils/jsonAdapter";
 import useFile from "src/store/useFile";
@@ -66,6 +67,13 @@ export const ToolsMenu = () => {
         </Menu.Item>
         <Menu.Item
           fz={12}
+          leftSection={<VscJson />}
+          onClick={() => window.open("tools/json-schema")}
+        >
+          JSON Schema
+        </Menu.Item>
+        <Menu.Item
+          fz={12}
           leftSection={<MdFilterListAlt />}
           onClick={() => {
             setVisible("jpath")(true);
@@ -97,6 +105,13 @@ export const ToolsMenu = () => {
         </Menu.Item>
         <Menu.Item fz={12} leftSection={<FaRandom />} onClick={randomizeData}>
           随机数据
+        </Menu.Item>
+        <Menu.Item
+          fz={12}
+          leftSection={<VscSync />}
+          onClick={() => window.open("/converter/json-to-yaml")}
+        >
+          格式转换
         </Menu.Item>
       </Menu.Dropdown>
     </Menu>
