@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, Flex, Group, Select } from "@mantine/core";
+import { Flex, Group, Select } from "@mantine/core";
 import styled from "styled-components";
 import toast from "react-hot-toast";
 import { AiOutlineFullscreen } from "react-icons/ai";

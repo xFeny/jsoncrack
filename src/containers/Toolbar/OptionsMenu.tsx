@@ -8,7 +8,6 @@ import useModal from "src/store/useModal";
 import { StyledToolElement } from "./styles";
 
 export const OptionsMenu = () => {
-  const setVisible = useModal(state => state.setVisible);
   const toggleGestures = useConfig(state => state.toggleGestures);
   const toggleChildrenCount = useConfig(state => state.toggleChildrenCount);
   const toggleDarkMode = useConfig(state => state.toggleDarkMode);
