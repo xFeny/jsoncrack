@@ -20,7 +20,7 @@ const useJsonQuery = () => {
       cb?.();
     } catch (error) {
       console.error(error);
-      toast.error("Unable to process the request.");
+      toast.error("无法处理请求.");
     }
   };
 

@@ -39,7 +39,7 @@ const StyledTools = styled.div`
 function fullscreenBrowser() {
   if (!document.fullscreenElement) {
     document.documentElement.requestFullscreen().catch(() => {
-      toast.error("Unable to enter fullscreen mode.");
+      toast.error("无法进入全屏模式.");
     });
   } else if (document.exitFullscreen) {
     document.exitFullscreen();

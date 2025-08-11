@@ -19,7 +19,7 @@ export const ImportModal = ({ opened, onClose }: ModalProps) => {
     if (url) {
       setFile(null);
 
-      toast.loading("Loading...", { id: "toastFetch" });
+      toast.loading("加载中...", { id: "toastFetch" });
       gaEvent("fetch_url");
 
       return fetch(url)

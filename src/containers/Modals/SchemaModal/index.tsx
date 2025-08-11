@@ -40,17 +40,17 @@ export const SchemaModal = ({ opened, onClose }: ModalProps) => {
       setJsonSchema(parsedSchema);
 
       gaEvent("apply_json_schema");
-      toast.success("Applied schema!");
+      toast.success("已应用 schema!");
       onClose();
     } catch (error) {
-      toast.error("Invalid Schema");
+      toast.error("无效的 Schema");
     }
   };
 
   const onClear = () => {
     setJsonSchema(null);
     setSchema("");
-    toast("Disabled JSON Schema");
+    toast("禁用 JSON Schema");
     onClose();
   };
 
@@ -64,7 +64,7 @@ export const SchemaModal = ({ opened, onClose }: ModalProps) => {
       onClose();
     } catch (error) {
       console.error(error);
-      toast.error("Invalid Schema");
+      toast.error("无效 Schema");
     }
   };
 

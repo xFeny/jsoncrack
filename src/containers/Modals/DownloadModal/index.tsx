@@ -72,7 +72,7 @@ export const DownloadModal = ({ opened, onClose }: ModalProps) => {
 
   const clipboardImage = async () => {
     try {
-      toast.loading("Copying to clipboard...", { id: "toastClipboard" });
+      toast.loading("正在复制到剪贴板...", { id: "toastClipboard" });
 
       const imageElement = document.querySelector("svg[id*='ref']") as HTMLElement;
 
@@ -89,10 +89,10 @@ export const DownloadModal = ({ opened, onClose }: ModalProps) => {
         }),
       ]);
 
-      toast.success("Copied to clipboard");
+      toast.success("已复制到剪贴板");
       gaEvent("clipboard_img");
     } catch (error) {
-      toast.error("Failed to copy to clipboard");
+      toast.error("复制到剪贴板失败");
     } finally {
       toast.dismiss("toastClipboard");
       onClose();
@@ -101,7 +101,7 @@ export const DownloadModal = ({ opened, onClose }: ModalProps) => {
 
   const exportAsImage = async () => {
     try {
-      toast.loading("Downloading...", { id: "toastDownload" });
+      toast.loading("下载中...", { id: "toastDownload" });
 
       const imageElement = document.querySelector("svg[id*='ref']") as HTMLElement;
 

@@ -41,7 +41,7 @@ export const ToolsMenu = () => {
       gaEvent("randomize_data");
     } catch (error) {
       console.error(error);
-      toast.error("Failed to generate mock data");
+      toast.error("生成模拟数据失败");
     }
   };
 

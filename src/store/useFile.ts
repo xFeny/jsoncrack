@@ -174,7 +174,7 @@ const useFile = create<FileStates & JsonActions>()((set, get) => ({
       return useJson.setState({ json: jsonStr, loading: false });
     } catch (error) {
       get().clear();
-      toast.error("Failed to fetch document from URL!");
+      toast.error("从 URL 获取文档失败!");
     }
   },
   checkEditorSession: (url, widget) => {
