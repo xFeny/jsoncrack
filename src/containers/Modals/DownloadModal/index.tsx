@@ -101,7 +101,7 @@ export const DownloadModal = ({ opened, onClose }: ModalProps) => {
 
   const exportAsImage = async () => {
     try {
-      toast.loading("下载中...", { id: "toastDownload" });
+      toast.loading("正在下载...", { id: "toastDownload" });
 
       const imageElement = document.querySelector("svg[id*='ref']") as HTMLElement;
 
