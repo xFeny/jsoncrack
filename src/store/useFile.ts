@@ -131,7 +131,7 @@ const useFile = create<FileStates & JsonActions>()((set, get) => ({
       get().setContents({ contents: jsonContent });
     } catch (error) {
       get().clear();
-      console.warn("The content was unable to be converted, so it was cleared instead.");
+      console.warn("内容无法转换，因此已清除。");
     }
   },
   setContents: async ({ contents, hasChanges = true, skipUpdate = false, format }) => {

@@ -12,6 +12,7 @@ import useToggleHide from "src/hooks/useToggleHide";
 import useConfig from "src/store/useConfig";
 import { CustomEdge } from "./CustomEdge";
 import { NotSupported } from "./NotSupported";
+import { ZoomControl } from "./ZoomControl";
 
 const StyledEditorWrapper = styled.div<{ $widget: boolean; $showRulers: boolean }>`
   position: absolute;
@@ -177,6 +178,7 @@ export const GraphView = ({ isWidget = false }: GraphProps) => {
   return (
     <>
       <LoadingOverlay visible={loading} />
+      <ZoomControl />
       <StyledEditorWrapper
         $widget={isWidget}
         onContextMenu={e => e.preventDefault()}

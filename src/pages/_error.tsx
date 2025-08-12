@@ -10,7 +10,7 @@ const Custom500 = () => {
 
   return (
     <Layout>
-      <NextSeo {...SEO} title="Unexpected Error Occured | ToDiagram" />
+      <NextSeo {...SEO} title="发生意外错误" />
       <Stack mt={100} justify="center" align="center">
         <Title fz={150} style={{ fontFamily: "monospace" }}>
           500

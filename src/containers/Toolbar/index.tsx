@@ -83,7 +83,7 @@ export const Toolbar = ({ isWidget = false }: ToolbarProps) => {
         </Group>
       )}
       <Group gap="xs" justify="right" w="100%" style={{ flexWrap: "nowrap" }}>
-        <SearchInput />
+        {/* <SearchInput /> */}
         {!isWidget && (
           <>
             <StyledToolElement title="保存为图片" onClick={() => setVisible("download")(true)}>

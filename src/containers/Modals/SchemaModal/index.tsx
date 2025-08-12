@@ -64,21 +64,21 @@ export const SchemaModal = ({ opened, onClose }: ModalProps) => {
       onClose();
     } catch (error) {
       console.error(error);
-      toast.error("无效 Schema");
+      toast.error("无效的 Schema");
     }
   };
 
   return (
     <Modal title="JSON Schema" size="lg" opened={opened} onClose={onClose} centered>
       <Stack>
-        <Text fz="sm">Any validation failures are shown at the bottom toolbar of pane.</Text>
+        <Text fz="sm">任何验证失败都会显示在面板底部的工具栏中。</Text>
         <Anchor
           fz="sm"
           target="_blank"
           href="https://niem.github.io/json/sample-schema/"
           rel="noopener noreferrer"
         >
-          View Examples <VscLinkExternal />
+          查看示例 <VscLinkExternal />
         </Anchor>
         <Paper withBorder radius="sm" style={{ overflow: "hidden" }}>
           <Editor
@@ -99,11 +99,11 @@ export const SchemaModal = ({ opened, onClose }: ModalProps) => {
         </Paper>
         <Group p="0" justify="right">
           <Button variant="subtle" color="gray" onClick={onClear} disabled={!schema}>
-            Clear
+            清除
           </Button>
           <Button.Group>
             <Button variant="default" onClick={onApply} disabled={!schema}>
-              Apply
+              应用
             </Button>
             <Menu>
               <Menu.Target>
@@ -112,7 +112,7 @@ export const SchemaModal = ({ opened, onClose }: ModalProps) => {
                 </Button>
               </Menu.Target>
               <Menu.Dropdown>
-                <Menu.Item onClick={generateMockData}>Generate Mock Data</Menu.Item>
+                <Menu.Item onClick={generateMockData}>生成模拟数据</Menu.Item>
               </Menu.Dropdown>
             </Menu>
           </Button.Group>

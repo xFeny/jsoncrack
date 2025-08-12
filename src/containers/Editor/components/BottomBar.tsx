@@ -138,7 +138,7 @@ export const BottomBar = () => {
       </StyledLeft>
 
       <StyledRight>
-        <StyledBottomBarItem>Nodes: {nodeCount}</StyledBottomBarItem>
+        <StyledBottomBarItem>节点数: {nodeCount}</StyledBottomBarItem>
       </StyledRight>
     </StyledBottomBar>
   );

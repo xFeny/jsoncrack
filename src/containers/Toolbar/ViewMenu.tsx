@@ -54,7 +54,7 @@ export const ViewMenu = () => {
     else collapseGraph();
 
     validateHiddenNodes();
-    toast(`${graphCollapsed ? "展开" : "折叠"} 图形`);
+    toast(`${graphCollapsed ? "已展开" : "已折叠"}图形`);
   };
 
   useHotkeys([
