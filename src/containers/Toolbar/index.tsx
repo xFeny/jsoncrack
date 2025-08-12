@@ -4,7 +4,6 @@ import styled from "styled-components";
 import toast from "react-hot-toast";
 import { AiOutlineFullscreen } from "react-icons/ai";
 import { FiDownload } from "react-icons/fi";
-import { SearchInput } from "src/containers/Toolbar/SearchInput";
 import { type FileFormat, formats } from "src/enums/file.enum";
 import { JSONCrackLogo } from "src/layout/JsonCrackLogo";
 import useFile from "src/store/useFile";
@@ -83,7 +82,6 @@ export const Toolbar = ({ isWidget = false }: ToolbarProps) => {
         </Group>
       )}
       <Group gap="xs" justify="right" w="100%" style={{ flexWrap: "nowrap" }}>
-        {/* <SearchInput /> */}
         {!isWidget && (
           <>
             <StyledToolElement title="保存为图片" onClick={() => setVisible("download")(true)}>
